@@ -2,8 +2,8 @@ import React from 'react';
 
 export default class Item extends React.Component {
   state = {
-    action: '';
-    checked: false;
+    action: '',
+    checked: false
   }
 
   componentDidMount() {
@@ -15,9 +15,11 @@ export default class Item extends React.Component {
   }
 
   render() {
-    <div classname='todoItem' >
-      <div className='check' key={this.state.action + 'x'}>X</div>
-      <div className='action' key={this.state.action + 'action'}>{this.state.action}</div>
-    </div>
+    return (
+      <div classname='todoItem' >
+        <div className='check' key={this.state.action + 'x'} onClick>X</div>
+        <div className='action' key={this.state.action + 'action'}>{this.state.action}</div>
+      </div>
+    );
   }
 }

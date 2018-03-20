@@ -1,27 +1,22 @@
 import React from 'react';
+import Item from './Item';
 
 export default class List extends React.Component {
   state = {
-    todos: [];
-  }
-
-  componentDidMount() {
-
-  }
-
-  addTodo() {
-
+    todoList: ['live', 'buy', 'consume', 'die']
   }
 
   render() {
-    <div class='todoList'>
-      {this.props.todos.map((todo) => {
-        return (
-          <div className='todo' key={todo}>
-            {todo}
-          </div>
-        );
-      })}
-    </div>
+    return (
+      <div className='todoList'>
+        {this.props.todoList.map((todo, idx) => {
+          return (
+            <p className='todo' key={todo + idx}>
+              {todo.value}
+            </p>
+          );
+        })}
+      </div>
+    );
   }
 }
