@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
+import { connect } from 'react-redux';
+import { Input, Item, List } from './Components';
 
 class App extends Component {
   state = {
@@ -10,10 +12,19 @@ class App extends Component {
     return (
       <div className="App">
         <h1>To Do List:</h1>
+        <
 
       </div>
-    );
+      );
+    }
   }
-}
-
-export default App;
+  
+const mapStateToProps = (state) => {
+  return {
+          todoList: state
+      };
+    };
+    
+export default connect(mapStateToProps, {
+          //add functions
+        })(App);
