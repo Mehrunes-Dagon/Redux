@@ -1,6 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { addTodo, markTodo } from '../Actions';
-export default class Form extends React.Component {
+class Form extends React.Component {
   state = {
     newTodo: ''
   };
@@ -8,10 +9,10 @@ export default class Form extends React.Component {
   render() {
     return (
       <div className='form'>
-        {console.log(this.props.addTodo)}
-        <form onSubmit={(newDO) => this.props.addTodo(this.state.newTodo)}>
+        <form onSubmit={this.submitter}>
           <input type='text' placeholder='Add Todo' onChange={this.getTodo} value={this.state.newTodo} />
         </form>
+        <button onClick={this.submitter}>Submit</button>
       </div>
     );
   }
@@ -22,6 +23,20 @@ export default class Form extends React.Component {
     });
   };
 
-
+  submitter = (event) => {
+    event.preventDefault();
+    this.props.addTodo(this.state.newTodo);
+    this.setState({
+      newTodo: ''
+    });
+  };
 
 }
+
+const mapStateToProps = state => {
+  return {
+    todoList: state
+  };
+};
+
+export default connect(mapStateToProps, { addTodo, markTodo })(Form);

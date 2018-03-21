@@ -4,10 +4,9 @@ import { connect } from 'react-redux';
 import Form from './Components/Form.js';
 import List from './Components/List.js';
 
+import { addTodo, markTodo } from './Actions';
+
 class App extends Component {
-  state = {
-    todoList: []
-  };
 
   render() {
     return (
@@ -20,7 +19,7 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     todoList: state
   };

@@ -1,16 +1,16 @@
 export const ADD_TODO = 'ADD_TODO';
 export const MARK_TODO = 'MARK_TODO';
 
-export const addTodo = (newDo) => {
+export const addTodo = (newTodo) => {
   return {
     type: 'ADD_TODO',
-    newTodo: newDo
+    newTodo: newTodo
   };
 };
 
-export const markTodo = () => {
+export const markTodo = (idx) => {
   return {
     type: 'MARK_TODO',
-    index: 1
+    index: idx
   };
 };

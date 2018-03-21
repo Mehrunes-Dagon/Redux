@@ -8,9 +8,13 @@ const initState = [
 export default (todoList = initState, action) => {
   switch (action.type) {
     case ADD_TODO:
-      // todoList.push(action.newTodo);
-      // return todoList;
-      return [...todoList, { value: action.newTodo }];
+      if (action.newTodo.length > 0) {
+        return [...todoList, {
+          value: action.newTodo,
+          checked: false
+        }];
+      }
+      return todoList;
     case MARK_TODO:
       todoList[action.index].checked = !todoList[action.index].checked;
       return todoList;
